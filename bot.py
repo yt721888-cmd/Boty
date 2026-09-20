@@ -538,12 +538,7 @@ KEYRING_FILE  = DIRS["data"] / "keyring.json"   # tiny local cache only
 # │  BOT TOKEN  add karo.   ││
 # └──────────────────────────────────────────────────────────────┘
 BOT_TOKEN_HARDCODED = ""   # ← token comes from Render env
-    os.environ.get("BOT_TOKEN")
-    or os.environ.get("MAIN_BOT_TOKEN")
-    or os.environ.get("TELEGRAM_BOT_TOKEN")
-    or BOT_TOKEN_HARDCODED
-    or ""
-).strip()
+TOKEN = os.environ.get("BOT_TOKEN", "").strip()
 try:
     OWNER_ID = int(os.environ.get("OWNER_ID", "7666143344"))
 except (TypeError, ValueError):
